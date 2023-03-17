@@ -11,6 +11,7 @@ public enum ZoneType: String, Equatable, Identifiable, CaseIterable, Codable {
         case .zone3: return "Endurance"
         case .zone4: return "Speed"
         case .zone5: return "Strength"
+        case .none: return "_"
         }
     }
     case zone1
@@ -18,4 +19,5 @@ public enum ZoneType: String, Equatable, Identifiable, CaseIterable, Codable {
     case zone3
     case zone4
     case zone5
+    case none
 }
