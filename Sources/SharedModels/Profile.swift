@@ -1,10 +1,16 @@
 import Foundation
 
-struct Profile: Equatable {
-    var hrZones: [Zone]?
-    var activities: [Activity]?
-    var connections: [Connection]?
-    var activeConnection: Connection? {
+public struct Profile: Equatable, Codable {
+    public init(hrZones: [Zone]? = nil, activities: [Activity]? = nil, connections: [Connection]? = nil) {
+        self.hrZones = hrZones
+        self.activities = activities
+        self.connections = connections
+    }
+    
+    public var hrZones: [Zone]?
+    public var activities: [Activity]?
+    public var connections: [Connection]?
+    public var activeConnection: Connection? {
         get {
             if let connections, connections.count == 1, let active = connections.first {
                 return active
@@ -14,15 +20,4 @@ struct Profile: Equatable {
         }
         set {}
     }
-}
-
-struct Connection: Equatable {
-    let id: String?
-    let type: ConnectionType
-}
-
-enum ConnectionType: String, Equatable {
-    case strava = "Strava"
-    case garmin = "Garmin"
-    case none
 }

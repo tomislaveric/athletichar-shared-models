@@ -1,13 +1,21 @@
 import Foundation
 
-struct Activity: Equatable, Identifiable {
-    let id: Int
-    let name: String?
-    let duration: Int
-    let heartRateTicks: [Int]
-    let sportsType: SportType
+public struct Activity: Equatable, Identifiable, Codable {
+    public init(id: Int, name: String? = nil, duration: Int, heartRateTicks: [Int], sportsType: SportType) {
+        self.id = id
+        self.name = name
+        self.duration = duration
+        self.heartRateTicks = heartRateTicks
+        self.sportsType = sportsType
+    }
     
-    var timeSample: Double? {
+    public let id: Int
+    public let name: String?
+    public let duration: Int
+    public let heartRateTicks: [Int]
+    public let sportsType: SportType
+    
+    public var timeSample: Double? {
         guard heartRateTicks.count != 0 else {
             return nil
         }
@@ -15,7 +23,7 @@ struct Activity: Equatable, Identifiable {
     }
 }
 
-enum SportType: String {
+public enum SportType: String, Codable {
     case bike
     case run
     case unknown
