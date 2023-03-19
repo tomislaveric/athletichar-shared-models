@@ -1,7 +1,7 @@
 import Foundation
 
 public struct Zone: Equatable, Identifiable, Codable {
-    public var id: Int = UUID().hashValue
+    public var id: UUID?
     public let range: Range<Int>
     public let type: ZoneType
     
