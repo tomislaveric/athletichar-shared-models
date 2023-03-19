@@ -11,7 +11,7 @@ public struct Connection: Equatable, Codable {
 }
 
 public enum ConnectionType: String, Equatable, Codable {
-    case strava = "Strava"
-    case garmin = "Garmin"
+    case strava
+    case garmin
     case none
 }
