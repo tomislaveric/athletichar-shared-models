@@ -1,17 +1,17 @@
 import Foundation
 
 public struct Connection: Equatable, Codable {
-    public init(id: String? = nil, type: ConnectionType) {
-        self.id = id
+    public init(user: String, type: ConnectionType) {
+        self.user = user
         self.type = type
     }
     
-    public let id: String?
+    public let user: String
     public let type: ConnectionType
 }
 
-public enum ConnectionType: String, Equatable, Codable {
-    case strava
-    case garmin
+public enum ConnectionType: Equatable, Codable {
+    case strava(id: String)
+    case garmin(id: String)
     case none
 }

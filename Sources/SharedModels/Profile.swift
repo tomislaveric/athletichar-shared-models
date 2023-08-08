@@ -1,10 +1,10 @@
 import Foundation
 
 public struct Profile: Equatable, Codable {
-    public init(name: String? = nil, connections: [Connection]? = nil) {
+    public init(name: String? = nil, creationDate: Date? = nil) {
         self.name = name
-        self.connections = connections
+        self.creationDate = creationDate
     }
-    public var name: String?
-    public var connections: [Connection]?
+    public let name: String?
+    public let creationDate: Date?
 }
